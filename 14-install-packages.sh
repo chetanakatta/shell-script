@@ -29,7 +29,7 @@ for i in $@
    echo "packages to install: $i"
     dnf list installed $i &>>$LOGFILE # to check installed in package
 
-  if [$? -eq 0]
+  if [ $? -eq 0 ]
    then 
     echo "$i already installed..skipping"
    else
