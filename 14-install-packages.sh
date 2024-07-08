@@ -37,7 +37,8 @@ for i in $@
    then 
     echo -e "$i already installed..$Y skipping $N"
    else
-    echo "$i not installed..need to install"
+    dnf install $i -y &>>$LOGFILE
+    VALIDATE $? "installation of $i"
   fi  
  done
 
