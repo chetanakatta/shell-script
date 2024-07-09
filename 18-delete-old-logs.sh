@@ -12,4 +12,11 @@ else
   exit 1
 fi
 FILES=$(find $SOURCE_DIRECTORY -name "*.log" -mtime +14)  #to find files which are older than 14 days
-echo "files to delete: $FILES"
+
+while IFS= read -r line
+do
+   echo "Deleting files: $line"
+   rm -rf $line
+done <<< $FILES   
+
+
